@@ -42,7 +42,7 @@
 .gallery__link:hover {
   cursor: zoom-in;
 }
-.active-img {
+/* .active-img {
   width: 40%;
   position: absolute;
   bottom: 0;
@@ -51,4 +51,4 @@
   color: aliceblue;
   text-align: center;
 }
-
+ */

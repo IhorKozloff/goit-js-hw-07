@@ -26,44 +26,44 @@ function onClickImgElement (event) {
     event.preventDefault()
 };
 
-const galleryFitches = new SimpleLightbox('.gallery a', {});
+const galleryFitches = new SimpleLightbox('.gallery a', {captionsData: "alt", captionsPositin: "bottom", captionsDelay: "250",});
 
-function findBySrc (findedObject, findedItem) {
-    const descriptionValue = findedObject.find(item => item.original === findedItem).description;
- return descriptionValue;
- };
+// function findBySrc (findedObject, findedItem) {
+//     const descriptionValue = findedObject.find(item => item.original === findedItem).description;
+//  return descriptionValue;
+//  };
 
-function addPictureName (className, currentImg) {
-    const imageWrapper = document.querySelector(`.${className}`);
-    const srcImage = document.querySelector(`.${currentImg}`).src;
-    imageWrapper.insertAdjacentHTML('beforeend', `<div class="active-img"> <p style="opacity: 1"> ${findBySrc(galleryItems, srcImage)} </p> </div>`); 
-};
+// function addPictureName (className, currentImg) {
+//     const imageWrapper = document.querySelector(`.${className}`);
+//     const srcImage = document.querySelector(`.${currentImg}`).src;
+//     imageWrapper.insertAdjacentHTML('beforeend', `<div class="active-img"> <p style="opacity: 1"> ${findBySrc(galleryItems, srcImage)} </p> </div>`); 
+// };
 
-function removePictureName (activeImg) {
-    const labelEl = document.querySelector(`.${activeImg}`)
-    if (labelEl) {
-        labelEl.remove();
-    }
-};
+// function removePictureName (activeImg) {
+//     const labelEl = document.querySelector(`.${activeImg}`)
+//     if (labelEl) {
+//         labelEl.remove();
+//     }
+// };
 
 
-// Срабатывает при открытии
-galleryFitches.on('shown.simplelightbox', _.debounce(function () {
-    addPictureName('sl-image', 'sl-image img');
-}, 250));
-// Срабатывает пред тем как картинка изменится
-galleryFitches.on('change.simplelightbox', function () {
-    removePictureName ('active-img');
-});
+// // Срабатывает при открытии
+// galleryFitches.on('shown.simplelightbox', _.debounce(function () {
+//     addPictureName('sl-image', 'sl-image img');
+// }, 250));
+// // Срабатывает пред тем как картинка изменится
+// galleryFitches.on('change.simplelightbox', function () {
+//     removePictureName ('active-img');
+// });
 
-//Срабатывает после того как картинка изменится
-galleryFitches.on('changed.simplelightbox', _.debounce(function () {
-    addPictureName('sl-image', 'sl-image img');
-}, 250));
+// //Срабатывает после того как картинка изменится
+// galleryFitches.on('changed.simplelightbox', _.debounce(function () {
+//     addPictureName('sl-image', 'sl-image img');
+// }, 250));
 
-// Срабатывает пред закрытием
-galleryFitches.on('close.simplelightbox', function () {
-    removePictureName ('active-img');
-});
+// // Срабатывает пред закрытием
+// galleryFitches.on('close.simplelightbox', function () {
+//     removePictureName ('active-img');
+// });
 
-galleryEl.addEventListener('click', onClickImgElement);
+// galleryEl.addEventListener('click', onClickImgElement);
